@@ -24,6 +24,8 @@ public class TransformMesh : MonoBehaviour
         pos = new HVector2D(gameObject.transform.position.x, gameObject.transform.position.y);
 
         // Your code here
+        //Translate(1, 1);
+        //Rotate(90);
     }
 
 

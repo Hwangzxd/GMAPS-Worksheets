@@ -180,9 +180,9 @@ public class HMatrix2D
         //    }
         //}
 
-        for (int y = 0; y < 4; y++)
+        for (int y = 0; y < 3; y++)
         {
-            for (int x = 0; x < 4; x++)
+            for (int x = 0; x < 3; x++)
             {
                 Entries[y, x] = x == y ? 1 : 0;
             }
