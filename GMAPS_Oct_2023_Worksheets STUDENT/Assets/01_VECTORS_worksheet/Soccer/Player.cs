@@ -7,14 +7,24 @@ public class Player : MonoBehaviour
     public bool IsCaptain = true;
     public Player OtherPlayer;
 
-    //float Magnitude(Vector3 vector)
-    //{
-    //    // Your code here
-    //}
+    public float x, y, z;
+    public float h;
+
+    private Vector3 startPosition;
+    private Vector3 directionVector;
+    private float dot;
+
+    float Magnitude(Vector3 vector)
+    {
+        return Mathf.Sqrt(x * x + y * y + z * z);
+    }
 
     //Vector3 Normalise(Vector3 vector)
     //{
-    //    // Your code here
+        //float mag = Magnitude();
+        //x /= mag;
+        //y /= mag;
+        //z /= mag;
     //}
 
     float Dot(Vector3 b)
@@ -83,11 +93,11 @@ public class Player : MonoBehaviour
     {
         if (IsCaptain)
         {
-            //startPosition = OtherPlayer.transform.position;
-            //directionVector = 
-            //float angle = Mathf.Acos(dot);
-            //DebugExtension.DebugArrow(OtherPlayer.transform.forward, Color.red);
-            //Debug.Log(angle);
+            startPosition = OtherPlayer.transform.position;
+            directionVector = OtherPlayer.transform.position - transform.position; 
+            DebugExtension.DebugArrow(transform.position, directionVector, Color.red);
+            DebugExtension.DebugArrow(transform.position, transform.forward, Color.blue);
+            AngleToPlayer(OtherPlayer);
         }
     }
 }
