@@ -13,9 +13,9 @@ public class HMatrix2D
 
     public HMatrix2D(float[,] multiArray)
     {
-        for (int y = 0; y < 4; y++)      // Do for each row
+        for (int y = 0; y < 3; y++)      // Do for each row
         {
-            for (int x = 0; x < 4; x++)  // Do for each col
+            for (int x = 0; x < 3; x++)  // Do for each col
             {
                 Entries[y, x] = multiArray[y, x];
             }
@@ -165,9 +165,9 @@ public class HMatrix2D
 
     public void setIdentity()
     {
-        //for (int y = 0; y < 4; y++)
+        //for (int y = 0; y < 3; y++)
         //{
-        //    for (int x = 0; x < 4; x++)
+        //    for (int x = 0; x < 3; x++)
         //    {
         //        if (x == y)
         //        {

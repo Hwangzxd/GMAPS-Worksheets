@@ -24,8 +24,8 @@ public class TransformMesh : MonoBehaviour
         pos = new HVector2D(gameObject.transform.position.x, gameObject.transform.position.y);
 
         // Your code here
-        //Translate(1, 1);
-        //Rotate(90);
+        //Translate(1.0f, 1.0f);
+        Rotate(45.0f);
     }
 
 
@@ -33,7 +33,7 @@ public class TransformMesh : MonoBehaviour
     {
         // Your code here
         transformMatrix.setIdentity();
-        transformMatrix.setTranslationMatrix(x, y);
+        transformMatrix.setTranslationMatrix(pos.x, pos.y);
         Transform();
 
         pos = transformMatrix * pos;
