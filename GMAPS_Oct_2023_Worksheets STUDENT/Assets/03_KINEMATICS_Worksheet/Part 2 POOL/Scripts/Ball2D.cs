@@ -22,11 +22,11 @@ public class Ball2D : MonoBehaviour
         Radius = local_sprite_size.x / 2f;
     }
 
-    //public bool IsCollidingWith(float x, float y)
-    //{
-    //    float distance = Util.FindDistance(Position.x, Position.y);
-    //    return distance <= Radius;
-    //}
+    public bool IsCollidingWith(float x, float y)
+    {
+        float distance = Vector2.Distance(transform.position, new Vector2(x, y));
+        return distance <= Radius;
+    }
 
     public bool IsCollidingWith(Ball2D other)
     {

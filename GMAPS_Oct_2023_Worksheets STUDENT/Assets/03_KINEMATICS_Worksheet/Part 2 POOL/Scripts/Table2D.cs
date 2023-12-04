@@ -13,7 +13,7 @@ public class Table2D : MonoBehaviour
 
     bool CheckBallCollision(Ball2D toCheck)
     {
-        //for (int i = 0; i < balls.Count; i++)
+        for (int i = 0; i < balls.Count; i++)
         {
             Ball2D ball = balls[1];
 

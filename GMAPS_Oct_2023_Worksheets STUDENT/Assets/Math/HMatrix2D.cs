@@ -212,6 +212,9 @@ public class HMatrix2D
     public void setScalingMatrix(float scaleX, float scaleY)
     {
         // your code here
+        setIdentity();
+        Entries[0, 0] = scaleX;
+        Entries[1, 1] = scaleY;
     }
 
     public void Print()
