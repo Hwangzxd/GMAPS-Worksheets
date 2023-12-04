@@ -13,6 +13,7 @@ public class HMatrix2D
 
     public HMatrix2D(float[,] multiArray)
     {
+        // Loop through each row and column of the 3x3 multiArray
         for (int y = 0; y < 3; y++)      // Do for each row
         {
             for (int x = 0; x < 3; x++)  // Do for each col
@@ -81,7 +82,8 @@ public class HMatrix2D
     {
         return new HVector2D
         (
-            (left.Entries[0, 0] * right.x + left.Entries[0, 1] * right.y + left.Entries[0, 2] * right.h),
+            // Using the entries of the matrix and vector for multiplication
+            left.Entries[0, 0] * right.x + left.Entries[0, 1] * right.y + left.Entries[0, 2] * right.h,
             left.Entries[1, 0] * right.x + left.Entries[1, 1] * right.y + left.Entries[1, 2] * right.h
         );
     }
@@ -119,11 +121,12 @@ public class HMatrix2D
 
     public static bool operator ==(HMatrix2D left, HMatrix2D right)
     {
-        for (int i = 0; i < left.Entries.Length; i++)
+        for (int y = 0; y < 3; y++)
         {
-            for (; i < right.Entries.Length; ++i)
+            for (int x = 0; x < 3; x++)
             {
-                if (left.Entries != right.Entries)
+                // Compare each entry of the matrices
+                if (left.Entries[y, x] != right.Entries[y, x])
                     return false;
             }
         }
@@ -132,11 +135,12 @@ public class HMatrix2D
 
     public static bool operator !=(HMatrix2D left, HMatrix2D right)
     {
-        for (int i = 0; i < left.Entries.Length; i++)
+        for (int y = 0; y < 3; y++)
         {
-            for (; i < right.Entries.Length; ++i)
+            for (int x = 0; x < 3; x++)
             {
-                if (left.Entries != right.Entries)
+                // Compare each entry of the matrices
+                if (left.Entries[y, x] != right.Entries[y, x])
                     return true;
             }
         }
@@ -180,10 +184,13 @@ public class HMatrix2D
         //    }
         //}
 
+        // Loop through each row and column of the 3x3 array
         for (int y = 0; y < 3; y++)
         {
             for (int x = 0; x < 3; x++)
             {
+                // If the current row y is equal to the current column x, set the value to 1
+                // Else, set it to 0
                 Entries[y, x] = x == y ? 1 : 0;
             }
         }  
@@ -194,6 +201,7 @@ public class HMatrix2D
     {
         // your code here
         setIdentity();
+        // Set the translation matrix entries for the x and y directions
         Entries[0,2] = transX;
         Entries[1,2] = transY;
     }
@@ -202,7 +210,9 @@ public class HMatrix2D
     {
         // your code here
         setIdentity();
+        // Convert the rotation angle from degrees to radians
         float rad = rotDeg * Mathf.Deg2Rad;
+        // Set the rotation matrix entries based on the cosine and sine of the angle
         Entries[0, 0] = Mathf.Cos(rad);
         Entries[0, 1] = -Mathf.Sin(rad);
         Entries[1, 0] = Mathf.Sin(rad);

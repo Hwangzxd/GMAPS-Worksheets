@@ -24,6 +24,7 @@ public class Ball2D : MonoBehaviour
 
     public bool IsCollidingWith(float x, float y)
     {
+        // Calculate the distance between the object's current position and the specified point
         float distance = Vector2.Distance(transform.position, new Vector2(x, y));
         return distance <= Radius;
     }
@@ -41,12 +42,15 @@ public class Ball2D : MonoBehaviour
 
     private void UpdateBall2DPhysics(float deltaTime)
     {
+        // Calculate the displacement in the x and y directions based on the ball's velocity and time
         float displacementX = Velocity.x * Time.deltaTime;
         float displacementY = Velocity.y * Time.deltaTime;
 
+        // Update the ball's position by adding displacements
         Position.x += displacementX;
         Position.y += displacementY;
 
+        // Update the transform position
         transform.position = new Vector2(Position.x, Position.y);
     }
 }

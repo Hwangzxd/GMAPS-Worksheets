@@ -22,8 +22,10 @@ public class PoolCue : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //var startLinePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Start line drawing
+            // Check if there is a ball and if the mouse click is colliding with the ball
             if (ball != null && ball.IsCollidingWith(startLinePos.x, startLinePos.y))
             {
+                // Draw a line between the mouse position and the ball
                 drawnLine = lineFactory.GetLine(startLinePos, ball.transform.position, 1f, Color.red);
                 drawnLine.EnableDrawing(true);
             }
@@ -39,6 +41,7 @@ public class PoolCue : MonoBehaviour
             drawnLine = null; // End line drawing            
         }
 
+        // If a line is being drawn, update its end point to the current mouse position
         if (drawnLine != null)
         {
             drawnLine.end = startLinePos; // Update line end

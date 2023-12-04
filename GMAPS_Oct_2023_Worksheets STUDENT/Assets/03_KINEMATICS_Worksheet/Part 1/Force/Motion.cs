@@ -10,10 +10,12 @@ public class Motion : MonoBehaviour
     {
         float dt = Time.deltaTime;
 
+        // Calculate the change in position for each axis based on velocity and time
         float dx = Velocity.x * dt;
         float dy = Velocity.y * dt;
         float dz = Velocity.z * dt;
 
+        // Update the position based on the calculated changes
         transform.position += (new Vector3(dx, dy, dz));
     }
 }
