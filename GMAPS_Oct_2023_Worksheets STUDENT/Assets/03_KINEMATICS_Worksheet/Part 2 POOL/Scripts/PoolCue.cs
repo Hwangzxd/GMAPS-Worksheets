@@ -26,7 +26,7 @@ public class PoolCue : MonoBehaviour
             if (ball != null && ball.IsCollidingWith(startLinePos.x, startLinePos.y))
             {
                 // Draw a line between the mouse position and the ball
-                drawnLine = lineFactory.GetLine(startLinePos, ball.transform.position, 1f, Color.red);
+                drawnLine = lineFactory.GetLine(startLinePos, ball.transform.position, 1f, Color.black);
                 drawnLine.EnableDrawing(true);
             }
         }
